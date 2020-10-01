@@ -17,6 +17,7 @@ import {
   Label,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
+const image1 = require("./assets/download.jpg");
 
 class Header extends Component {
   constructor(props) {
@@ -62,9 +63,9 @@ class Header extends Component {
             <NavbarToggler onClick={this.toggleNav} />
             <NavbarBrand className="mr-auto" href="/">
               <img
-                src="assets/images/logo.png"
+                src= {image1}
                 height="30"
-                width="41"
+                width="30"
                 alt="AgroConnect"
               />
             </NavbarBrand>

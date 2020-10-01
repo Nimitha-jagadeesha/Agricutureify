@@ -77,12 +77,18 @@ const Home = (props) => {
       <Jumbotron>
         <div className="container">
           <div className="row row-header">
-            <div className="col-12 col-sm-6">
+            <div className="col">
               <h1>Agro Connect</h1>
               <p>
-                We take inspiration from the World's best cuisines, and create a
-                unique fusion experience. Our lipsmacking creations will tickle
-                your culinary senses!
+                The main aim of this website is to educate farmers and solve all
+                their problems by using technology. Even though technology has
+                gone too far beyond, technology is failing to reach
+                everyone,especially farmers.So to provide an alternative avenue
+                to sell their produce .So here is an platform which provides
+                farmers platform to directly contact the buyer, so that there is
+                no middle man making the profit. So in this websitee we are
+                providing various buyers details whih includes their contact
+                number so that farmers will be benefited.
               </p>
             </div>
           </div>
