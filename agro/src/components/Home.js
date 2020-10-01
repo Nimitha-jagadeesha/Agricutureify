@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
   CarouselCaption,
-  Jumbotron
-} from 'reactstrap';
-const image1 =require('./assets/download.jpg')
-const image2 =require('./assets/download.jpg')
-const image3 =require('./assets/download.jpg')
+  Jumbotron,
+} from "reactstrap";
+const image1 = require("./assets/download.jpg");
+const image2 = require("./assets/download.jpg");
+const image3 = require("./assets/download.jpg");
 
 const items = [
   {
     src: image1,
-    altText: 'Slide 1',
-    caption: 'Slide 1'
+    altText: "Slide 1",
+    caption: "Slide 1",
   },
   {
     src: image1,
-    altText: 'Slide 2',
-    caption: 'Slide 2'
+    altText: "Slide 2",
+    caption: "Slide 2",
   },
   {
     src: image1,
-    altText: 'Slide 3',
-    caption: 'Slide 3'
-  }
+    altText: "Slide 3",
+    caption: "Slide 3",
+  },
 ];
 
 const Home = (props) => {
@@ -37,19 +37,25 @@ const Home = (props) => {
     if (animating) return;
     const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
-  }
+  };
 
   const previous = () => {
     if (animating) return;
     const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
-  }
+  };
 
   const goToIndex = (newIndex) => {
     if (animating) return;
     setActiveIndex(newIndex);
-  }
-
+  };
+  const styles = {
+    stretch: {
+      width: "100%",
+      height: "100%",
+      margin: 5,
+    },
+  };
   const slides = items.map((item) => {
     return (
       <CarouselItem
@@ -57,20 +63,22 @@ const Home = (props) => {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} />
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+        <img src={item.src} alt={item.altText} style={styles.stretch} />
+        <CarouselCaption
+          captionText={item.caption}
+          captionHeader={item.caption}
+        />
       </CarouselItem>
     );
   });
 
   return (
     <div>
-    
-    <Jumbotron>
+      <Jumbotron>
         <div className="container">
           <div className="row row-header">
             <div className="col-12 col-sm-6">
-              <h1>Ristorante con Fusion</h1>
+              <h1>Agro Connect</h1>
               <p>
                 We take inspiration from the World's best cuisines, and create a
                 unique fusion experience. Our lipsmacking creations will tickle
@@ -80,19 +88,28 @@ const Home = (props) => {
           </div>
         </div>
       </Jumbotron>
-    <Carousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-    >
-      <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
-      {slides}
-      <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-      <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-    </Carousel>
+      <div className="container">
+        <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+          <CarouselIndicators
+            items={items}
+            activeIndex={activeIndex}
+            onClickHandler={goToIndex}
+          />
+          {slides}
+          <CarouselControl
+            direction="prev"
+            directionText="Previous"
+            onClickHandler={previous}
+          />
+          <CarouselControl
+            direction="next"
+            directionText="Next"
+            onClickHandler={next}
+          />
+        </Carousel>
+      </div>
     </div>
   );
-}
+};
 
 export default Home;
-
