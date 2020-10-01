@@ -2,14 +2,14 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import { BrowserRouter } from "react-router-dom";
-import Header from './components/Header'
+import 'bootstrap-social/bootstrap-social.css';
+
+import Main from './components/Main'
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
-      <Header />
-    </div>
-  </BrowserRouter>
+    <Main/>
+    </BrowserRouter>
   );
 }
 

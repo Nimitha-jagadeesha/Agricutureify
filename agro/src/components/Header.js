@@ -7,7 +7,6 @@ import {
   NavbarToggler,
   Collapse,
   NavItem,
-  Jumbotron,
   Button,
   Modal,
   ModalHeader,
@@ -78,12 +77,12 @@ class Header extends Component {
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" to="/aboutus">
-                    <span className="fa fa-info fa-lg"></span> Services
+                    <span className="fa fa-info fa-lg"></span> About Us
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/menu">
-                    <span className="fa fa-list fa-lg"></span> Menu
+                  <NavLink className="nav-link" to="/services">
+                    <span className="fa fa-info fa-lg"></span> Services
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -103,20 +102,6 @@ class Header extends Component {
             </Collapse>
           </div>
         </Navbar>
-        <Jumbotron>
-          <div className="container">
-            <div className="row row-header">
-              <div className="col-12 col-sm-6">
-                <h1>Ristorante con Fusion</h1>
-                <p>
-                  We take inspiration from the World's best cuisines, and create
-                  a unique fusion experience. Our lipsmacking creations will
-                  tickle your culinary senses!
-                </p>
-              </div>
-            </div>
-          </div>
-        </Jumbotron>
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
           <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
           <ModalBody>
