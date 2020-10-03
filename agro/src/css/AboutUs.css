@@ -10,9 +10,18 @@
     outline: none;
     transition: 0.4s;
   }
+  .text-block {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: white;
+    padding-left: 50px;
+    padding-right: 20px;
+  }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .accordion:hover {
+   .accordion:hover {
     background-color: #ccc;
   }
   
@@ -23,20 +32,5 @@
     display: none;
     overflow: hidden;
   }
-  /* Container holding the image and the text */
-.row-content {
-    position: relative;
   
-        
-  }
-  
-  /* Bottom right text */
-  .bottom-left {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: black;
-    color: white;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+ 
