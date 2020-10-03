@@ -11,14 +11,14 @@
 }
 
 .footer{
-  background-color: #D1C4E9;
+  background-color:#c2f0c2;
   margin:0px auto;
   padding: 20px 0px 20px 0px;
 }
 .jumbotron {
   padding:70px 30px 70px 30px;
   margin:0px auto;
-  background: #9575CD ;
+  background-color: #009900;
   color:floralwhite;
 }
 
@@ -27,9 +27,12 @@ address{
   margin:0px;
   color:#0f0f0f;
 }
+.breadcrumb{
+background-color: #c2f0c2;
+}
 
 .navbar-dark {
-  background-color: #512DA8;
+  background-color: #006600;
 }
 .page-enter {
   opacity: 0.01;

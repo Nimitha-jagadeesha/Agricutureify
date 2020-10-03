@@ -8,7 +8,7 @@ class AboutUs extends Component {
   render() {
     return (
       <div>
-        <Breadcrumb>
+        <Breadcrumb >
           <BreadcrumbItem>
             <Link to="/home">Home</Link>
           </BreadcrumbItem>

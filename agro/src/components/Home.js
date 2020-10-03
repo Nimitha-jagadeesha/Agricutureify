@@ -74,6 +74,7 @@ const Home = (props) => {
 
   return (
     <div>
+  
       <Jumbotron>
         <div className="container">
           <div className="row row-header">
