@@ -6,6 +6,8 @@ import Footer from './Footer'
 import ContactUs from './ContactUs'
 import Services from './Services'
 import AboutUs from './AboutUs' 
+import Login from './Login'
+import Register from './Register'
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +22,8 @@ class Main extends Component {
           <Route path="/contactus" component={ContactUs} />
           <Route path="/services" component={Services} />
           <Route path="/aboutus" component={AboutUs} />
-
+          <Route path ="/login" component={Login}/>
+          <Route path ="/register" component={Register}/>
           <Redirect to="/home" />
         </Switch>
         <Footer/>

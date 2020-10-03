@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Breadcrumb, BreadcrumbItem, Media } from "reactstrap";
-const image1 = require("./assets/download.jpg");
+const image1 = require("../assets/download.jpg");
 
 class AboutUs extends Component {
   render() {

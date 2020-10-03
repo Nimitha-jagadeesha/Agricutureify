@@ -35,12 +35,3 @@ class Services extends Component {
   }
 }
 export default Services;
-const elementStyle = {
-  border: "solid",
-  borderRadius: "10px",
-  height: "10",
-  width: 1000,
-  marginTop: "5vh",
-  marginBottom: "10vh",
-  alignItems: "center",
-};

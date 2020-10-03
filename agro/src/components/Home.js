@@ -7,9 +7,9 @@ import {
   CarouselCaption,
   Jumbotron,
 } from "reactstrap";
-const image1 = require("./assets/download.jpg");
-const image2 = require("./assets/download.jpg");
-const image3 = require("./assets/download.jpg");
+const image1 = require("../assets/download.jpg");
+const image2 = require("../assets/download.jpg");
+const image3 = require("../assets/download.jpg");
 
 const items = [
   {
