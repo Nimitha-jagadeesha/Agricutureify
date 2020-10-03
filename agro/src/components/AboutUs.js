@@ -1,31 +1,47 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, Media } from "reactstrap";
-const image1 = require("../assets/download.jpg");
+import './AboutUs.css';
+const image1 = require("./assets/download.jpg");
 
 class AboutUs extends Component {
   render() {
     return (
-      <div>
-        <Breadcrumb tag="nav" listTag="div">
-          <BreadcrumbItem tag="a" href="home">
-            Home
-          </BreadcrumbItem>
-          <BreadcrumbItem active tag="span">
-            About Us
-          </BreadcrumbItem>
-        </Breadcrumb>
-        <Media className='container'>
-          <Media left href="#">
-            <img src={image1}></img>
-          </Media>
-          <Media body  className='offset-1'>
-            <Media heading>Media heading</Media>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-            scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum
-            in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
-            nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </Media>
-        </Media>
+      
+      <div >
+        <div className="row">
+          <Breadcrumb>
+            <BreadcrumbItem>
+              <Link to="/home">Home</Link>
+            </BreadcrumbItem>
+            <BreadcrumbItem active>About Us</BreadcrumbItem>
+          </Breadcrumb>
+        </div>
+        <div class="row-content" >
+            <img src={image1} alt="Snow" width="10%" heigh="10%"></img>
+               <div class="bottom-left">
+    
+    <p>AgroConnect promotes eBusiness</p>
+  </div>
+        </div>
+        <div>
+          <button class="accordion">Farmers</button>
+          <div class="panel">
+            <p>here we will add about the farmers info after updating services</p>
+          </div>
+
+          <button class="accordion">Buyers</button>
+          <div class="panel">
+          <p>here we will add about the buyers info after updating services</p>
+          </div>
+
+          <button class="accordion">others</button>          
+          <div class="panel">
+          <p>here we will add some other extra  info after updating services</p>
+          </div>
+        </div>
+
+      
       </div>
     );
   }
