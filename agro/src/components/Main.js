@@ -8,6 +8,7 @@ import Services from './Services'
 import AboutUs from './AboutUs' 
 import Login from './Login'
 import Register from './Register'
+import Profile from './Profile'
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +25,7 @@ class Main extends Component {
           <Route path="/aboutus" component={AboutUs} />
           <Route path ="/login" component={Login}/>
           <Route path ="/register" component={Register}/>
+          <Route path ="/profile" component={Profile}/>
           <Redirect to="/home" />
         </Switch>
         <Footer/>

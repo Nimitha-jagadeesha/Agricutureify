@@ -7,14 +7,6 @@ import {
   NavbarToggler,
   Collapse,
   NavItem,
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Form,
-  FormGroup,
-  Input,
-  Label,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 const image1 = require("../assets/download.jpg");
@@ -24,11 +16,11 @@ class Header extends Component {
     super(props);
     this.state = {
       isNavOpen: false,
+      isAuthenticated: true,
     };
-    this.toggleNav = this.toggleNav.bind(this);
   }
 
-  toggleNav() {
+  toggleNav=()=> {
     this.setState({
       isNavOpen: !this.state.isNavOpen,
     });
@@ -39,6 +31,48 @@ class Header extends Component {
       isModalOpen: !this.state.isModalOpen,
     });
   }
+
+  renderNavItem = () => {
+    if (this.state.isAuthenticated) {
+      return (
+        <Nav className="ml-auto" navbar>
+        <NavItem>
+        <NavLink className="nav-link" to="/profile">
+          <span className="fa fa-user-circle fa-lg"></span> Profile
+        </NavLink>
+      </NavItem>
+          <NavItem>
+            <NavLink
+              className="nav-link"
+              to="/home"
+              onClick={() => {
+                this.setState({
+                  isAuthenticated: false,
+                });
+              }}
+            >
+              <span className="fa fa-sign-out fa-lg"></span> Logout
+            </NavLink>
+          </NavItem>
+        </Nav>
+      );
+    } else {
+      return (
+        <Nav className="ml-auto" navbar>
+          <NavItem>
+            <NavLink className="nav-link" to="/login">
+              <span className="fa fa-sign-in fa-lg"></span> Login
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className="nav-link" to="/register">
+              <span className="fa fa-sign-in fa-lg"></span> Register
+            </NavLink>
+          </NavItem>
+        </Nav>
+      );
+    }
+  };
 
   render() {
     return (
@@ -73,18 +107,7 @@ class Header extends Component {
                   </NavLink>
                 </NavItem>
               </Nav>
-              <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <NavLink className="nav-link" to="/login">
-                    <span className="fa fa-sign-in fa-lg"></span> Login
-                  </NavLink>
-                </NavItem>
-                 <NavItem>
-                  <NavLink className="nav-link" to="/register">
-                    <span className="fa fa-sign-in fa-lg"></span> Register
-                  </NavLink>
-                </NavItem>
-              </Nav>
+              {this.renderNavItem()}
             </Collapse>
           </div>
         </Navbar>

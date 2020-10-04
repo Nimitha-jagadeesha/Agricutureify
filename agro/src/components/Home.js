@@ -18,12 +18,12 @@ const items = [
     caption: "Slide 1",
   },
   {
-    src: image1,
+    src: image2,
     altText: "Slide 2",
     caption: "Slide 2",
   },
   {
-    src: image1,
+    src: image3,
     altText: "Slide 3",
     caption: "Slide 3",
   },
@@ -96,7 +96,7 @@ const Home = (props) => {
         </div>
       </Jumbotron>
       <div className="container">
-        <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+        <Carousel activeIndex={activeIndex} next={next} previous={previous} className='col-8 offset-2'>
           <CarouselIndicators
             items={items}
             activeIndex={activeIndex}
