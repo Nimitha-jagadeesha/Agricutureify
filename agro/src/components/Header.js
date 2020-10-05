@@ -17,6 +17,7 @@ class Header extends Component {
     this.state = {
       isNavOpen: false,
       isAuthenticated: true,
+      name:'Nimitha.J'
     };
   }
 
@@ -38,7 +39,7 @@ class Header extends Component {
         <Nav className="ml-auto" navbar>
         <NavItem>
         <NavLink className="nav-link" to="/profile">
-          <span className="fa fa-user-circle fa-lg"></span> Profile
+          <span className="fa fa-user-circle fa-lg"></span> {this.state.name}
         </NavLink>
       </NavItem>
           <NavItem>

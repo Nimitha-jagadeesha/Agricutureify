@@ -6,7 +6,58 @@ import {
   InputGroupAddon,
   InputGroupText,
   Input,
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  Button,
+  CardFooter,
+  Media,
 } from "reactstrap";
+import { Link } from "react-router-dom";
+
+const data = [
+  {
+    crop: "Crop Name",
+    img: "../assets/download.jpg",
+    price: "3000",
+  },
+  {
+    crop: "Crop Name",
+    img: "../assets/download.jpg",
+    price: "3000",
+  },
+  {
+    crop: "Crop Name",
+    img: "../assets/download.jpg",
+    price: "3000",
+  },
+  {
+    crop: "Crop Name",
+    img: "../assets/download.jpg",
+    price: "3000",
+  },
+];
+const renderList = data.map((x) => {
+  return (
+    <div>
+      <Card className="row">
+        <Media className="container">
+          <Media left href="#">
+            <img src={x.img}></img>
+          </Media>
+          <Media body className="offset-1">
+            <Media heading>{x.crop}</Media>
+            {x.price}
+          </Media>
+        </Media>
+      </Card>
+      <br />
+    </div>
+  );
+});
 class Services extends Component {
   render() {
     return (
@@ -30,6 +81,7 @@ class Services extends Component {
           </InputGroup>
         </div>
         <br />
+        <div className="container">{renderList}</div>
       </div>
     );
   }
