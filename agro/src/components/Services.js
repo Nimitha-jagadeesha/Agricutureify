@@ -8,46 +8,62 @@ import {
   Input,
   Card,
   Media,
+  Spinner,
 } from "reactstrap";
-import axios from "axios";
-function Services() {
-  const [Data, setData] = useState([]);
-  const renderList = Data
-    ? Data.map((x) => {
-        return (
-          <div>
-            <Card className="container">
-              <Media className="row">
-                <Media left href="#" className="col-md-3 c01-12">
-                  <img src={x.pic} width="100%" />
-                </Media>
-                <Media body className="col-8">
-                  <Media heading><strong>Crop :</strong> {x.name}</Media>
-                  <Media ><strong>Price :</strong> {x.price}</Media>
-                  <Media ><strong>Owner :</strong> {x.owner}</Media>
-                  <Media ><strong>Phone Number :</strong> {x.ownerphone}</Media>
-                  <Media ><strong>Address :</strong> {x.owneraddress}</Media>
+import { useSelector } from "react-redux";
 
-                  <Media muted>
-                    <strong>Last Update On:</strong>{Date(x.createdAt).toString()}
-                  </Media>
+const Services = () => {
+  const cropList = useSelector((state) => state.cropList);
+  const { Data, loading, error } = cropList;
+  const renderList = !loading ? (
+    Data.map((x) => {
+      return (
+        <div>
+          <Card className="container">
+            <Media className="row">
+              <Media left href="#" className="col-md-3 col-12">
+                <img src={x.pic} width="100%" />
+              </Media>
+              <Media body className="col-8">
+                <Media heading className="text-center">
+                  <strong>Crop :</strong> {x.name}
+                </Media>
+                <Media className="row">
+                  <strong className="col-md-3 col-6 offset-1">Price :</strong>{" "}
+                  <div className="col-md-8 col-5">{x.price}</div>
+                </Media>
+                <Media className="row">
+                  <strong className="col-md-3 col-6 offset-1">Owner :</strong>{" "}
+                  <div className="col-md-8 col-5">{x.owner}</div>
+                </Media>
+                <Media className="row">
+                  <strong className="col-md-3 col-6 offset-1">
+                    Phone Number :
+                  </strong>{" "}
+                  <div className="col-md-8 col-5">{x.ownerphone}</div>
+                </Media>
+                <Media className="row">
+                  <strong className="col-md-3 col-6 offset-1">Address :</strong>{" "}
+                  <div className="col-md-8 col-5">{x.owneraddress}</div>
+                </Media>
+                <Media muted className="row">
+                  <strong className="col-md-3 col-6 offset-1">
+                    Last Update On:
+                  </strong>{" "}
+                  <div className="col-md-8 col-5">
+                    {Date(x.createdAt).toString()}
+                  </div>
                 </Media>
               </Media>
-            </Card>
-            <br />
-          </div>
-        );
-      })
-    : null;
-  useEffect(() => {
-    const fetchedData = async () => {
-      const { data } = await axios.get("/data");
-      setData(data);
-      console.log(Data);
-    };
-    fetchedData();
-  }, []);
-
+            </Media>
+          </Card>
+          <br />
+        </div>
+      );
+    })
+  ) : (
+    <Spinner color="primary" className="offset-5" />
+  );
   return (
     <div>
       <Breadcrumb tag="nav" listTag="div">
@@ -69,8 +85,10 @@ function Services() {
         </InputGroup>
       </div>
       <br />
-      <div className="container">{renderList}</div>
+      <div className="container">
+        {renderList}
+      </div>
     </div>
   );
-}
+};
 export default Services;
