@@ -65,7 +65,6 @@ const Home = (props) => {
       >
         <img src={item.src} alt={item.altText} style={styles.stretch} />
         <CarouselCaption
-          colour="black"
           captionHeader={item.caption}
         />
       </CarouselItem>
@@ -74,7 +73,6 @@ const Home = (props) => {
 
   return (
     <div>
-  
       <Jumbotron>
         <div className="container">
           <div className="row row-header">

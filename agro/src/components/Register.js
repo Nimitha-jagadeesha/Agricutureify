@@ -6,6 +6,7 @@ export class login extends Component {
       <form className="container">
         <br />
         <Card>
+          <h2 className="offset-5">Register</h2>
           <div className="row">
             <p></p>
           </div>
@@ -53,7 +54,7 @@ export class login extends Component {
             </label>
             <input
               className="col-6 col-md-5"
-              type="pasword"
+              type="password"
               id=" Pasword"
               name=" Confirm Pasword"
               placeholder="Pasword"
@@ -66,7 +67,7 @@ export class login extends Component {
             </label>
             <input
               className="col-6 col-md-5"
-              type="pasword"
+              type="password"
               id="email"
               name=" Confirm Pasword"
               placeholder=" Confirm Pasword"
