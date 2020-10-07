@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, Media } from "reactstrap";
 import "../css/AboutUs.css";
-const image1 = require("../assets/download.jpg");
+const image1 = require("../assets/aboutus.jpeg");
 
 class AboutUs extends Component {
   render() {
@@ -16,11 +16,8 @@ class AboutUs extends Component {
         </Breadcrumb>
 
         <div className="container">
-          <img src={image1} alt="Norway" style={{width:'100%',height:'100%'}} />
-          <div className="text-block">
-            <h4>Nature</h4>
-            <p>What a beautiful sunrise</p>
-          </div>
+          <img src={image1} alt="Norway" style={{width:'100%',height:'450px'}} />
+          
         </div>
         <div>
           <button className="accordion">Farmers</button>

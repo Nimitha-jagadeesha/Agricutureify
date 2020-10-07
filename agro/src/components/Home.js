@@ -7,25 +7,25 @@ import {
   CarouselCaption,
   Jumbotron,
 } from "reactstrap";
-const image1 = require("../assets/download.jpg");
-const image2 = require("../assets/download.jpg");
-const image3 = require("../assets/download.jpg");
+const image1 = require("../assets/s4.jpeg");
+const image2 = require("../assets/s2.jpeg");
+const image3 = require("../assets/s3.jpeg");
 
 const items = [
   {
     src: image1,
-    altText: "Slide 1",
-    caption: "Slide 1",
+    caption: "Local Farm Produce",
+    
   },
   {
     src: image2,
-    altText: "Slide 2",
-    caption: "Slide 2",
+    
+    caption: "Green and Fresh",
   },
   {
     src: image3,
-    altText: "Slide 3",
-    caption: "Slide 3",
+   
+    caption:"Tech Revolutionizing"
   },
 ];
 
@@ -52,7 +52,7 @@ const Home = (props) => {
   const styles = {
     stretch: {
       width: "100%",
-      height: "100%",
+      height: "450px",
       margin: 5,
     },
   };
@@ -65,7 +65,7 @@ const Home = (props) => {
       >
         <img src={item.src} alt={item.altText} style={styles.stretch} />
         <CarouselCaption
-          captionText={item.caption}
+          colour="black"
           captionHeader={item.caption}
         />
       </CarouselItem>

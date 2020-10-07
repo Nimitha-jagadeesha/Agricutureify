@@ -29,10 +29,10 @@ class Contact extends Component {
 
           <div className="row row-content">
             <div className="col-12">
-              <h3>Location Information</h3>
+              <h2>Location Information</h2>
             </div>
             <div className="col-12 col-sm-4 offset-sm-1">
-              <h5>Our Address</h5>
+              <h3>Our Address</h3>
               <address>
                 100 ft.road near church
                 <br />
@@ -73,11 +73,7 @@ class Contact extends Component {
               </div>
             </div>
           </div>
-          <div className="row row-content">
-            <div className="col-12">
-              <h3>Send us your Feedback</h3>
-            </div>
-          </div>
+          
         </div>
       </div>
     );
