@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, Media } from "reactstrap";
 import "../css/AboutUs.css";
+import { Accordion, Card, Button } from "react-bootstrap";
 const image1 = require("../assets/aboutus.jpeg");
 
 class AboutUs extends Component {
   render() {
     return (
       <div>
-        <Breadcrumb >
+        <Breadcrumb>
           <BreadcrumbItem>
             <Link to="/home">Home</Link>
           </BreadcrumbItem>
@@ -16,32 +17,40 @@ class AboutUs extends Component {
         </Breadcrumb>
 
         <div className="container">
-          <img src={image1} alt="Norway" style={{width:'100%',height:'450px'}} />
-          
+          <img
+            src={image1}
+            alt="Norway"
+            style={{ width: "100%", height: "450px" }}
+          />
         </div>
-        <div>
-          <button className="accordion">Farmers</button>
-          <div className="panel">
-            <p>
-              here we will add about the farmers info after updating services
-            </p>
-          </div>
-
-          <button className="accordion">Buyers</button>
-          <div className="panel">
-            <p>
-              here we will add about the buyers info after updating services
-            </p>
-          </div>
-
-          <button className="accordion">others</button>
-          <div className="panel">
-            <p>
-              here we will add some other extra info after updating services
-            </p>
-          </div>
+          <Accordion defaultActiveKey="0">
+            <Card>
+              <Card.Header>
+                <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                  Farmers
+                </Accordion.Toggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body>
+                  here we will add about the farmers info after updating
+                  services
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+            <Card>
+              <Card.Header>
+                <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                  Buyers
+                </Accordion.Toggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey="1">
+                <Card.Body>
+                  here we will add about the buyers info after updating services
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
         </div>
-      </div>
     );
   }
 }
