@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-// import { signin } from '../actions/userActions';
 import { Card } from "reactstrap";
 
 function Login(props) {
@@ -10,17 +9,19 @@ function Login(props) {
   const loading = null;
   const error = null;
   const redirect = "";
-  const submitHandler = () => {};
+  const submitHandler = () => {
+
+  };
   return (
     <form className="container">
       <br />
       <Card>
-        <h2 className="offset-5">Login-In</h2>
+        <h2 className="offset-5">Login</h2>
         <div className="row">
           <p></p>
         </div>
         <div className="row">
-          <label className="col-4 col-md-2 offset-1 offset-md-2">Email</label>
+          <label className="col-4 col-md-2 offset-1 offset-md-2">Email :</label>
           <input
             className="col-6 col-md-5"
             type="email"
@@ -44,9 +45,9 @@ function Login(props) {
           />
         </div>
         <br />
+        <input className="offset-5 col-3 bg-primary" type="submit" value="Submit" required style={{color: 'white'}}/>
       </Card>
       <br />
-      <input className="offset-6" type="submit" value="Submit" />
     </form>
   );
 }

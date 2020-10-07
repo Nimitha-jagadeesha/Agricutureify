@@ -15,15 +15,15 @@ class AboutUs extends Component {
           </BreadcrumbItem>
           <BreadcrumbItem active>About Us</BreadcrumbItem>
         </Breadcrumb>
-
-        <div className="container">
+        <div className="row">
           <img
+            className="offset-3 col-6"
             src={image1}
             alt="Norway"
-            style={{ width: "100%", height: "450px" }}
+            style={{ width: "100%", height: "100%" }}
           />
         </div>
-          <Accordion defaultActiveKey="0">
+          <Accordion defaultActiveKey="0" style={{padding:'0px'}}>
             <Card>
               <Card.Header>
                 <Accordion.Toggle as={Button} variant="link" eventKey="0">
