@@ -5,7 +5,7 @@ import {
 } from "../constants/cropConstant";
 
 function cropListReducer(state = { Data: [] }, action) {
-
+  
     switch (action.type) {
     case CROP_LIST_REQUEST:
       return { loading: true, Data: [] };

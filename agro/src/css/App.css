@@ -1,3 +1,6 @@
+body{
+  overflow-x: hidden;
+}
 .row-header{
   margin:0px auto;
   padding:0px auto;
@@ -32,10 +35,12 @@ address{
 }
 .breadcrumb{
 background-color: #c2f0c2;
+margin: 0;
 }
 
 .navbar-dark {
   background-color: #006600;
+  width: 100%;
 }
 .page-enter {
   opacity: 0.01;

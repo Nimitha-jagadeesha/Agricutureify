@@ -9,7 +9,7 @@ import AboutUs from "./AboutUs";
 import Login from "./Login";
 import Register from "./Register";
 import Profile from "./Profile";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { listCrops } from "../actions/cropsActions";
 
 const Main = () => {
