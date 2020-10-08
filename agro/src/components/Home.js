@@ -73,7 +73,6 @@ const Home = (props) => {
       <Jumbotron>
         <h1 className="text-center">Agro Connect</h1>
         <div className="container">
-<<<<<<< HEAD
           <div className="row row-header">
             <div className="col">
               <h1>Agro Connect</h1>
@@ -90,33 +89,6 @@ const Home = (props) => {
                 </strong></h4>
             </div>
           </div>
-=======
-            <p className="text-justify">
-              Over the years, the system has created several layers of
-              intermediaries, lengthening the supply chain and increasing the
-              opportunity for cartels to form, which in turn drive prices down
-              for farmers. Farmers earn only 15 to 20% of the market price the
-              consumer pays.The middle man be it the wholesalers or retailers
-              gobble up the remaining profit margin The main reasons for this
-              exploitation experienced by farmers are , lack of infrastructure
-              for farmers to store their produce to bargain their prices, they
-              cannot organise them selves as one force, The small holdings is
-              another drawback for farmers to demand the right price. The best
-              way is to give farmers the power to sell or giving them an
-              opportunity which connects them to consumers directly rather than
-              middle man minting farmers money. If the consumer knows where to
-              find the farm produce he may buy directly from the farmer himself.
-            </p>
-            <p className="text-justify">
-              We connect farmers to end consumers direct and help each other
-              trade the grains at much better rates. It ensure that farmers get
-              the fair rate of their grains. More than market and also for
-              consumers it ensure that they get best quality grains at best
-              price as compared to what they buy from super markets. Also If
-              you're a farmer and want to get your crops, food grains at better
-              rates than local mandi/traders we are here to help you.
-            </p>
->>>>>>> 54f488809e9be6253ca1d92f75bfd965e5e37e83
         </div>
       </Jumbotron>
       <div className="container">
