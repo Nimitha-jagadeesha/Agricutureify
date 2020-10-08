@@ -1,22 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { Card } from "reactstrap";
+import { Card, Spinner } from "reactstrap";
+import { signin } from "../actions/userAction";
+
 
 function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const loading = null;
-  const error = null;
-  const redirect = "";
-  const submitHandler = () => {
-
+  const userSignin = useSelector((state) => state.userSignin);
+  const { loading, userInfo, error } = userSignin;
+  const dispatch = useDispatch();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(signin(email, password));
   };
+
+  useEffect(()=>{
+    if(userInfo){
+      props.history.push('/services');
+    }
+    return () =>{
+
+    }
+  },[userInfo])
   return (
-    <form className="container">
+    <form className="container" onSubmit={submitHandler}>
       <br />
       <Card>
         <h2 className="offset-5">Login</h2>
+        
+        {loading && <Spinner color="primary" className="offset-5" />}
+        {error&&<div className="text-center" style={{color:"red"}}>{error}</div>}
         <div className="row">
           <p></p>
         </div>
@@ -28,6 +43,9 @@ function Login(props) {
             id="email"
             name="email"
             placeholder="Your email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
         </div>
         <br />
@@ -42,10 +60,23 @@ function Login(props) {
             id=" Pasword"
             name=" Confirm Pasword"
             placeholder="Pasword"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
         </div>
         <br />
-        <input className="offset-5 col-3 bg-primary" type="submit" value="Submit" required style={{color: 'white'}}/>
+        <Link to="/register" className="col-12 text-center">
+          New to AgroConnect?
+        </Link>
+        <br />
+        <input
+          className="offset-5 col-3 bg-primary"
+          type="submit"
+          value="Submit"
+          required
+          style={{ color: "white" }}
+        />
       </Card>
       <br />
     </form>

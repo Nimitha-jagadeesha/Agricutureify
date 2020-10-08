@@ -1,6 +1,12 @@
-import React, { Component, useState } from "react";
-import { Card, Alert } from "reactstrap";
-function Register() {
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Card, Alert, Spinner } from "reactstrap";
+import { register } from "../actions/userAction";
+function Register(props) {
+  const dispatch = useDispatch();
+  const resgister = useSelector((state) => state.resgister);
+  const { loading, userInfo, error } = resgister;
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [password, setPassword] = useState("");
@@ -10,34 +16,44 @@ function Register() {
   const [isFarmer, setisFarmer] = useState(false);
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
+
+  useEffect(() => {
+    if (userInfo) {
+      props.history.push("/services");
+    }
+    return () => {};
+  }, [userInfo]);
   const submitHandler = (e) => {
-    console.log(password)
+    console.log(password);
     if (password.length <= 5) {
-      setPassword("")
+      setPassword("");
       setMsg("Password should be more than 5 characters");
     } else if (password === confirmpassword) {
-      setMsg("");
-
+      dispatch(
+        register(firstname, lastname, password, email, address, phone, isFarmer)
+      );
     } else {
       setMsg("Password and confirm password must be same");
-
     }
     e.preventDefault();
-
   };
   const setGender = (event) => {
     console.log(event.target.value);
-    if(event.target.value==='Farmer')
-            setisFarmer(true);
+    if (event.target.value === "Farmer") setisFarmer(true);
   };
   return (
     <form className="container" onSubmit={submitHandler}>
       <br />
       <Card>
-      {msg ? (
-        <Alert color="danger">{msg}</Alert>
-      ) : null}
+        {msg ? <Alert color="danger">{msg}</Alert> : null}
         <h2 className="offset-5">Register</h2>
+
+        {loading && <Spinner color="primary" className="offset-5" />}
+        {error && (
+          <div className="text-center" style={{ color: "red" }}>
+            {error}
+          </div>
+        )}
         <div className="row">
           <p></p>
         </div>
@@ -52,7 +68,9 @@ function Register() {
             name="firstname"
             placeholder="Your name"
             required
-            onChange={(e)=>{setFirstname(e.target.value)}}
+            onChange={(e) => {
+              setFirstname(e.target.value);
+            }}
           />
         </div>
         <br />
@@ -67,7 +85,9 @@ function Register() {
             name="lastname"
             placeholder="Your last name"
             required
-            onChange={(e)=>{setLastname(e.target.value)}}
+            onChange={(e) => {
+              setLastname(e.target.value);
+            }}
           />
         </div>
         <br />
@@ -82,7 +102,9 @@ function Register() {
             name="email"
             placeholder="Your email"
             required
-            onChange={(e)=>{setEmail(e.target.value)}}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
         </div>
         <br />
@@ -97,7 +119,9 @@ function Register() {
             name="phone"
             placeholder="Phone number"
             required
-            onChange={(e)=>{setPhone(e.target.value)}}
+            onChange={(e) => {
+              setPhone(e.target.value);
+            }}
           />
         </div>
         <br />
@@ -113,7 +137,9 @@ function Register() {
             name=" Confirm Pasword"
             placeholder="Pasword"
             required
-            onChange={(e)=>{setPassword(e.target.value)}}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
         </div>
         <br />
@@ -128,7 +154,9 @@ function Register() {
             name=" Confirm Pasword"
             placeholder=" Confirm Pasword"
             required
-            onChange={(e)=>{setConfirmPassword(e.target.value)}}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+            }}
           />
         </div>
         <br />
@@ -143,7 +171,9 @@ function Register() {
             name="subject"
             placeholder="Address"
             required
-            onChange={(e)=>{setAddress(e.target.value)}}
+            onChange={(e) => {
+              setAddress(e.target.value);
+            }}
           ></textarea>
           <br />
           <br />
@@ -163,6 +193,10 @@ function Register() {
             </div>
           </div>
         </div>
+        <br />
+        <Link to="/login" className="col-12 text-center">
+          Have an account?
+        </Link>
         <br />
         <input
           className="offset-5 col-3 bg-primary"

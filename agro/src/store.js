@@ -1,9 +1,12 @@
-import { createStore, combineReducers, applyMiddleware,compose } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { cropListReducer } from "./reducer/cropListReducer";
-import thunk from 'redux-thunk'
+import thunk from "redux-thunk";
+import { userRegisterReducer, userSigninReducer } from "./reducer/userReducer";
 const initialState = {};
 const reducer = combineReducers({
   cropList: cropListReducer,
+  userSignin: userSigninReducer,
+  resgister: userRegisterReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
