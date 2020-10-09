@@ -31,7 +31,7 @@ const register = (
 ) => async (dispatch) => {
   dispatch({
     type: USER_REGISTER_REQUEST,
-    payload: { firstname, lastname, password, email,address, phone, isFarmer },
+    payload: { firstname, lastname, password, email, address, phone, isFarmer },
   });
   try {
     const { data } = await axios.post("/users/register", {
@@ -46,7 +46,10 @@ const register = (
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
     Cookie.set("userInfo", JSON.stringify(data));
   } catch (error) {
-    dispatch({ type: USER_REGISTER_FAIL, payload: "You have already created your account" });
+    dispatch({
+      type: USER_REGISTER_FAIL,
+      payload: "You have already created your account",
+    });
   }
 };
 export { signin, register };
