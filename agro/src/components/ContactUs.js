@@ -12,7 +12,6 @@ const image1 = require("../assets/contact.jpg");
 const image2 = require("../assets/organic.jpg");
 const image3 = require("../assets/nature.jpg");
 
-
 class Contact extends Component {
   render() {
     return (
@@ -31,51 +30,49 @@ class Contact extends Component {
             </div>
           </div>
           <div className="container">
-           <div className="row">
-            <img
-            className="col-4"
-            src={image1}
-            alt="Norway"
-            style={{ width: "100%", height: "100%" }}
-            />
-           <img
-            className="col-4"
-            src={image2}
-            alt="Norway"
-            style={{ width: "100%", height: "100%" }}
-            />
-            <img
-            className="offset-2 col-2"
-            src={image3}
-            alt="Norway"
-            style={{ width: "100%", height: "80%" }}
-            />
-            
-           </div>
-          </div>
-
-          <div className="row row-content">
-            <div className="offset-4 col-12">
-              <h2>Location Information</h2>
+            <div className="row">
+              <img
+                className="col-4"
+                src={image1}
+                alt="Norway"
+                style={{ width: "100%", height: "100%" }}
+              />
+              <img
+                className="col-4"
+                src={image2}
+                alt="Norway"
+                style={{ width: "100%", height: "100%" }}
+              />
+              <img
+                className="offset-2 col-2"
+                src={image3}
+                alt="Norway"
+                style={{ width: "100%", height: "80%" }}
+              />
             </div>
-            <div className="col-12 col-sm-4 offset-4">
-              <h3>Our Address</h3>
-              <address>
+          </div>
+          <hr />
+          <div className="row row-content">
+            <div className="col-12 col-md-4 offset-4">
+              <h2>Our Address</h2>
+              <h6>
                 <strong>
-                100 ft.road near church
-                <br />
-                Indiranagar
-                <br />
-                BANGLORE
-                <br />
-                <i className="fa fa-phone"></i>: +896 2589 3699
-                <br />
-                <i className="fa fa-fax"></i>: +896 78549632
-                <br />
-                <i className="fa fa-envelope"></i>:{" "}
-                <a href="mailto:agroconnect@email.com">agroconnect@email.com</a>
+                  100 ft.road near church
+                  <br />
+                  Indiranagar
+                  <br />
+                  BANGLORE
+                  <br />
+                  <i className="fa fa-phone"></i>: +896 2589 3699
+                  <br />
+                  <i className="fa fa-fax"></i>: +896 78549632
+                  <br />
+                  <i className="fa fa-envelope"></i>:{" "}
+                  <a href="mailto:agroconnect@email.com">
+                    agroconnect@email.com
+                  </a>
                 </strong>
-              </address>
+              </h6>
             </div>
             <div className="col-12 col-sm-11 offset-sm-1 offset-md-4">
               <div className="btn-group" role="group">
@@ -99,7 +96,6 @@ class Contact extends Component {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     );

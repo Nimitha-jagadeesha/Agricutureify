@@ -34,6 +34,7 @@ const Main = () => {
         <Route path="/profile" component={Profile} />
         <Redirect to="/home" />
       </Switch>
+      <br/>
       <Footer />
     </div>
   );

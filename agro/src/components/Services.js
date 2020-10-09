@@ -37,8 +37,8 @@ const Services = (props) => {
         <div>
           <Card className="container">
             <Media className="row">
-              <Media left href="#" className="col-md-3 col-12" style={{margin: 30}}>
-                <img src={x.pic} width="100%" />
+              <Media left href="#" className="col-md-3 col-12" style={{margin: 20}}>
+                <img src={x.pic} width="90%" />
               </Media>
               <Media body className="col-8">
                 <Media heading className="text-center">
