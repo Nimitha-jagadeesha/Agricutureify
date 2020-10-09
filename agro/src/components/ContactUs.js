@@ -8,6 +8,10 @@ import {
   Row,
   Col,
 } from "reactstrap";
+const image1 = require("../assets/contact.jpg");
+const image2 = require("../assets/organic.jpg");
+const image3 = require("../assets/nature.jpg");
+
 
 class Contact extends Component {
   render() {
@@ -26,14 +30,38 @@ class Contact extends Component {
               <hr />
             </div>
           </div>
+          <div className="container">
+           <div className="row">
+            <img
+            className="col-4"
+            src={image1}
+            alt="Norway"
+            style={{ width: "100%", height: "100%" }}
+            />
+           <img
+            className="col-4"
+            src={image2}
+            alt="Norway"
+            style={{ width: "100%", height: "100%" }}
+            />
+            <img
+            className="offset-2 col-2"
+            src={image3}
+            alt="Norway"
+            style={{ width: "100%", height: "80%" }}
+            />
+            
+           </div>
+          </div>
 
           <div className="row row-content">
-            <div className="col-12">
+            <div className="offset-4 col-12">
               <h2>Location Information</h2>
             </div>
-            <div className="col-12 col-sm-4 offset-sm-1">
+            <div className="col-12 col-sm-4 offset-4">
               <h3>Our Address</h3>
               <address>
+                <strong>
                 100 ft.road near church
                 <br />
                 Indiranagar
@@ -46,12 +74,10 @@ class Contact extends Component {
                 <br />
                 <i className="fa fa-envelope"></i>:{" "}
                 <a href="mailto:agroconnect@email.com">agroconnect@email.com</a>
+                </strong>
               </address>
             </div>
-            <div className="col-12 col-sm-6 offset-sm-1">
-              <h5>Map of our Location</h5>
-            </div>
-            <div className="col-12 col-sm-11 offset-sm-1">
+            <div className="col-12 col-sm-11 offset-sm-1 offset-md-4">
               <div className="btn-group" role="group">
                 <a
                   role="button"
