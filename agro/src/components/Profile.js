@@ -9,6 +9,8 @@ import {
   CardTitle,
   CardSubtitle,
   Button,
+  Alert,
+  Spinner,
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
@@ -23,8 +25,11 @@ const Profile = (props) => {
   const [pic, setPic] = useState("");
   const [name, setName] = useState("");
   const addcrop = useSelector((state) => state.addcrop);
-  console.log(addcrop);
+  const { loading1, data } = addcrop;
+  const cropList = useSelector((state) => state.cropList);
+  const { Data, loading, error } = cropList;
   var { userInfo } = userSignin;
+
   if (!userInfo) {
     userInfo = Cookies.get("userInfo");
     try {
@@ -37,22 +42,75 @@ const Profile = (props) => {
     props.history.push("/login");
     return null;
   }
+  const renderList = !loading
+    ? Data.map((x) => {
+        if (x.ownerid === userInfo._id)
+          return (
+            <div>
+              <Card className="container">
+                <Media className="row">
+                  <Media left href="#" className="col-md-3 col-12">
+                    <img src={x.pic} width="100%" />
+                  </Media>
+                  <Media body className="col-8">
+                    <Media heading className="text-center">
+                      <strong>Crop :</strong> {x.name}
+                    </Media>
+                    <Media className="row">
+                      <strong className="col-md-3 col-6 offset-1">
+                        Price :
+                      </strong>{" "}
+                      <div className="col-md-8 col-5">{x.price}</div>
+                    </Media>
+                    <Media className="row">
+                      <strong className="col-md-3 col-6 offset-1">
+                        Owner :
+                      </strong>{" "}
+                      <div className="col-md-8 col-5">{x.owner}</div>
+                    </Media>
+                    <Media className="row">
+                      <strong className="col-md-3 col-6 offset-1">
+                        Phone Number :
+                      </strong>{" "}
+                      <div className="col-md-8 col-5">{x.ownerphone}</div>
+                    </Media>
+                    <Media className="row">
+                      <strong className="col-md-3 col-6 offset-1">
+                        Address :
+                      </strong>{" "}
+                      <div className="col-md-8 col-5">{x.owneraddress}</div>
+                    </Media>
+                    <Media muted className="row">
+                      <strong className="col-md-3 col-6 offset-1">
+                        Last Update On:
+                      </strong>{" "}
+                      <div className="col-md-8 col-5">
+                        {Date(x.createdAt).toString()}
+                      </div>
+                    </Media>
+                  </Media>
+                </Media>
+              </Card>
+              <br />
+            </div>
+          );
+      })
+    : null;
   const handleAddCrop = () => {
-    if(name&&price)
-    dispatch(
-      addCrop(
-        name,
-        price,
-        userInfo.firstname,
-        pic,
-        userInfo._id,
-        userInfo.address,
-        userInfo.phone
-      )
-    );
-    else
-    {
-      console.log('All fields are required')
+    if (name && price) {
+      dispatch(
+        addCrop(
+          name,
+          price,
+          userInfo.firstname,
+          pic,
+          userInfo._id,
+          userInfo.address,
+          userInfo.phone
+        )
+      );
+    } else {
+      alert("All fields are required");
     }
   };
   return (
@@ -102,6 +160,13 @@ const Profile = (props) => {
             className="row"
             style={{ display: "flex", justifyContent: "center" }}
           >
+            {data ? (
+              <Alert color="success" className="text-center">
+                Added sucessfully
+              </Alert>
+            ) : null}
+
+            {loading1 && <Spinner color="primary" className="offset-5" />}
             <CardBody body className="text-center container">
               <div className="row">
                 <p></p>
@@ -111,7 +176,7 @@ const Profile = (props) => {
                   <b>Select the crop :</b>
                 </label>
                 <Select
-                required
+                  required
                   options={options}
                   className="col-6 col-md-5"
                   onChange={(e) => {
@@ -131,7 +196,9 @@ const Profile = (props) => {
                   type="text"
                   placeholder="Enter price"
                   required
-                  onChange={(e) => {setPrice(e.target.value)}}
+                  onChange={(e) => {
+                    setPrice(e.target.value);
+                  }}
                 />
               </div>
               <br />
@@ -141,9 +208,13 @@ const Profile = (props) => {
               </Button>
             </CardBody>
           </Card>
-        ) : null}
+        ) : <Spinner color="primary" className="offset-5" />}
       </div>
       <br />
+      <div className="container">
+        <h1 className="text-center">Your Crops</h1>
+        {renderList}
+      </div>
     </div>
   );
 };

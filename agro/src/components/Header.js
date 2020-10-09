@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 
 import {
   Navbar,
@@ -9,13 +9,11 @@ import {
   NavItem,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { signin } from "../actions/userAction";
+import {  useSelector } from "react-redux";
 import Cookies from "js-cookie";
 const image1 = require("../assets/download.jpg");
 
 const Header = () => {
-  const dispatch = useDispatch();
   const [isNavOpen, setState] = useState(false);
   const userSignin = useSelector((state) => state.userSignin);
   var { userInfo } = userSignin;

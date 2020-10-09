@@ -24,11 +24,11 @@ function cropListReducer(state = { Data: [] }, action) {
 function addCropReducer(state = {}, action) {
   switch (action.type) {
     case ADD_CROP_REQUEST:
-      return { loading: true };
+      return { loading1: true };
     case ADD_CROP_SUCCESS:
-      return { loading: false, userInfo: action.payload };
+      return { loading1: false, data: action.payload };
     case ADD_CROP_FAIL:
-      return { loading: false, error: action.payload };
+      return { loading1: false, error: action.payload };
     default:
       return state;
   }
