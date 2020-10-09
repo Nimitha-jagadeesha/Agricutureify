@@ -1,13 +1,10 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { Breadcrumb, BreadcrumbItem, Media } from "reactstrap";
 import { Link } from "react-router-dom";
 import {
   Card,
-  CardImg,
   CardText,
   CardBody,
-  CardTitle,
-  CardSubtitle,
   Button,
   Alert,
   Spinner,
@@ -148,72 +145,83 @@ const Profile = (props) => {
               <b className="col-6">Phone Number : </b>
               {userInfo.phone}
             </CardText>
-            <Button className="bg-primary">
-              <i className="fa fa-pencil" />
-              {"    "}Edit
-            </Button>
           </CardBody>
         </Card>
         <br />
         {userInfo.isFarmer ? (
-          <Card
-            className="row"
-            style={{ display: "flex", justifyContent: "center" }}
-          >
-            {data ? (
-              <Alert color="success" className="text-center">
-                Added sucessfully
-              </Alert>
-            ) : null}
+          <div>
+            <Card
+              className="row"
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              {data ? (
+                <Alert color="success" className="text-center">
+                  Added sucessfully
+                </Alert>
+              ) : null}
 
-            {loading1 && <Spinner color="primary" className="offset-5" />}
-            <CardBody body className="text-center container">
-              <div className="row">
-                <p></p>
-              </div>
-              <div className="row">
-                <label className="col-4 col-md-2 offset-1 offset-md-2">
-                  <b>Select the crop :</b>
-                </label>
-                <Select
-                  required
-                  options={options}
-                  className="col-6 col-md-5"
-                  onChange={(e) => {
-                    setName(options[e.value].label);
-                    setPic(options[e.value].url);
-                    console.log(options[e.value].label);
-                  }}
-                />
-              </div>
-              <br />
-              <div className="row">
-                <label className="col-4 col-md-2 offset-1 offset-md-2">
-                  <b>Price expectation in Rs:</b>
-                </label>
-                <input
-                  className="col-6 col-md-5"
-                  type="text"
-                  placeholder="Enter price"
-                  required
-                  onChange={(e) => {
-                    setPrice(e.target.value);
-                  }}
-                />
-              </div>
-              <br />
-              <Button className="bg-success" onClick={handleAddCrop}>
-                <i className="fa fa-plus" />
-                {"    "}Add crop
-              </Button>
-            </CardBody>
-          </Card>
-        ) : <Spinner color="primary" className="offset-5" />}
-      </div>
-      <br />
-      <div className="container">
-        <h1 className="text-center">Your Crops</h1>
-        {renderList}
+              {loading1 && <Spinner color="primary" className="offset-5" />}
+              <CardBody body className="text-center container">
+                <div className="row">
+                  <p></p>
+                </div>
+                <div className="row">
+                  <label className="col-4 col-md-2 offset-1 offset-md-2">
+                    <b>Select the crop :</b>
+                  </label>
+                  <Select
+                    required
+                    options={options}
+                    className="col-6 col-md-5"
+                    onChange={(e) => {
+                      setName(options[e.value].label);
+                      setPic(options[e.value].url);
+                    }}
+                  />
+                </div>
+                <br />
+                <div className="row">
+                  <label className="col-4 col-md-2 offset-1 offset-md-2">
+                    <b>Price expectation in Rs:</b>
+                  </label>
+                  <input
+                    className="col-6 col-md-5"
+                    type="text"
+                    placeholder="Enter price"
+                    required
+                    onChange={(e) => {
+                      setPrice(e.target.value);
+                    }}
+                  />
+                </div>
+                <br />
+                <Button className="bg-success" onClick={handleAddCrop}>
+                  <i className="fa fa-plus" />
+                  {"    "}Add crop
+                </Button>
+              </CardBody>
+            </Card>
+            <br />
+            <div className="container">
+              <h1 className="text-center">Your Crops</h1>
+              {renderList}
+            </div>
+          </div>
+        ) : (
+          <div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+          </div>
+        )}
       </div>
     </div>
   );
