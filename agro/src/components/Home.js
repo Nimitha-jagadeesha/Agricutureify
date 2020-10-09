@@ -10,6 +10,7 @@ import {
 const image1 = require("../assets/s4.jpeg");
 const image2 = require("../assets/s2.jpeg");
 const image3 = require("../assets/s3.jpeg");
+const image4 = require("../assets/download.jpg");
 
 const items = [
   {
@@ -71,15 +72,24 @@ const Home = (props) => {
   return (
     <div>
       <Jumbotron>
-        <h1 className="text-center">Agricultureify</h1>
+        <div className="container">
+        <h1 className="text-center"><strong>Agricultureify</strong></h1>
+        </div>
         <div className="container">
           <div className="row row-header">
-            <div className="col">
+            <div className="col-9">
               <h4><strong>
               The main aim of this website is to educate farmers and solve all their problems by using technology. Even though technology has gone too far beyond, technology is failing to reach everyone, especially farmers. So to provide an alternative avenue to sell their produce. So here is a platform that provides farmers a platform to directly contact the buyer, so that no middle man is making the profit. So on this website, we are
                 providing various buyers' and farmers' details which include their contact numbers so that both farmers and buyers will be benefited mutually.
                 </strong></h4>
             </div>
+            <div className="col">
+          <img
+            src={image4}
+            alt="Logoo"
+            style={{ width: "100%", height: "100%" }}
+          />
+        </div>
           </div>
         </div>
       </Jumbotron>
