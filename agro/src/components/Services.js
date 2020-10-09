@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -16,7 +16,9 @@ import options from "./options";
 import Select from "react-select";
 
 const Services = (props) => {
+  const [selectedCrop, setSelectedCrop] = useState("")
   const userSignin = useSelector((state) => state.userSignin);
+  var op =[...options,{value:"20",label:"All"}]
   var { userInfo } = userSignin;
   if (!userInfo) {
     userInfo = Cookies.get("userInfo");
@@ -30,11 +32,12 @@ const Services = (props) => {
   const { Data, loading, error } = cropList;
   const renderList = !loading ? (
     Data.map((x) => {
+      if((!selectedCrop)||x.name===selectedCrop||selectedCrop=="All")
       return (
         <div>
           <Card className="container">
             <Media className="row">
-              <Media left href="#" className="col-md-3 col-12">
+              <Media left href="#" className="col-md-3 col-12" style={{margin: 30}}>
                 <img src={x.pic} width="100%" />
               </Media>
               <Media body className="col-8">
@@ -97,11 +100,11 @@ const Services = (props) => {
             <span className="fa fa-search" />
           </InputGroupText>
           <Select
-            options={options}
+            options={op}
             className="col-8 col-md-8 search"
             placeholder="Search"
             onChange={(e) => {
-              console.log(e.value);
+              setSelectedCrop(op[e.value].label);
             }}
           />
         </div>

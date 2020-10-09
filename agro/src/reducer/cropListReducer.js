@@ -33,4 +33,17 @@ function addCropReducer(state = {}, action) {
       return state;
   }
 }
-export { cropListReducer, addCropReducer };
+
+function deleteCropReducer(state = {}, action) {
+  switch (action.type) {
+    case ADD_CROP_REQUEST:
+      return { loading1: true };
+    case ADD_CROP_SUCCESS:
+      return { loading1: false, data: action.payload };
+    case ADD_CROP_FAIL:
+      return { loading1: false, error: action.payload };
+    default:
+      return state;
+  }
+}
+export { cropListReducer, addCropReducer, deleteCropReducer };

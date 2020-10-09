@@ -5,6 +5,9 @@ import {
   CROP_LIST_FAIL,
   CROP_LIST_REQUEST,
   CROP_LIST_SUCESS,
+  DELETE_CROP_FAIL,
+  DELETE_CROP_REQUEST,
+  DELETE_CROP_SUCCESS,
 } from "../constants/cropConstant";
 import axios from "axios";
 
@@ -46,4 +49,20 @@ const addCrop = (
     dispatch({ type: ADD_CROP_FAIL, payload: error.message });
   }
 };
-export { listCrops,addCrop };
+
+const deleteCrop = (id) => async (dispatch) => {
+  console.log(id);
+  dispatch({
+    type: DELETE_CROP_REQUEST,
+    payload: { id },
+  });
+  try {
+    const { data } = await axios.post("/delete", {
+      id,
+    });
+    dispatch({ type: DELETE_CROP_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: DELETE_CROP_FAIL, payload: error.message });
+  }
+};
+export { listCrops, addCrop, deleteCrop };

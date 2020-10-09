@@ -13,8 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 import Select from "react-select";
 import options from "./options";
-import { addCrop } from "../actions/cropsActions";
-
+import { addCrop, deleteCrop } from "../actions/cropsActions";
 const Profile = (props) => {
   const dispatch = useDispatch();
   const userSignin = useSelector((state) => state.userSignin);
@@ -39,6 +38,12 @@ const Profile = (props) => {
     props.history.push("/login");
     return null;
   }
+
+  const handleDelete = (x) =>{
+     dispatch(deleteCrop(x._id))
+     alert('Deleted Sucessfully')
+     window.location.reload(false);
+  }
   const renderList = !loading
     ? Data.map((x) => {
         if (x.ownerid === userInfo._id)
@@ -46,8 +51,8 @@ const Profile = (props) => {
             <div>
               <Card className="container">
                 <Media className="row">
-                  <Media left href="#" className="col-md-3 col-12">
-                    <img src={x.pic} width="100%" />
+                  <Media left href="#" className="col-md-3 col-12" style={{margin: 30}}>
+                    <img src={x.pic} width="100%" height="100%"/>
                   </Media>
                   <Media body className="col-8">
                     <Media heading className="text-center">
@@ -87,6 +92,7 @@ const Profile = (props) => {
                     </Media>
                   </Media>
                 </Media>
+                <Button className="bg-danger col-md-2 col-4 offset-4 offset-md-5" onClick={()=>{handleDelete(x)}}><i className="fa fa-trash"/> Delete</Button>
               </Card>
               <br />
             </div>
