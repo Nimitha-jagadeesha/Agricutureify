@@ -71,21 +71,13 @@ const Home = (props) => {
   return (
     <div>
       <Jumbotron>
-        <h1 className="text-center">Agro Connect</h1>
+        <h1 className="text-center">Agricultureify</h1>
         <div className="container">
           <div className="row row-header">
             <div className="col">
-              <h1>Agro Connect</h1>
               <h4><strong>
-              The main aim of this website is to educate farmers and solve all
-                their problems by using technology. Even though technology has
-                gone too far beyond, technology is failing to reach
-                everyone,especially farmers.So to provide an alternative avenue
-                to sell their produce .So here is a platform which provides
-                farmers a platform to directly contact the buyer, so that there is
-                no middle man making the profit. So in this website we are
-                providing various buyers' and farmers' details which include their contact
-                numbers so that both farmers and buyers will be benefited mutually.
+              The main aim of this website is to educate farmers and solve all their problems by using technology. Even though technology has gone too far beyond, technology is failing to reach everyone, especially farmers. So to provide an alternative avenue to sell their produce. So here is a platform that provides farmers a platform to directly contact the buyer, so that no middle man is making the profit. So on this website, we are
+                providing various buyers' and farmers' details which include their contact numbers so that both farmers and buyers will be benefited mutually.
                 </strong></h4>
             </div>
           </div>
