@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, Media } from "reactstrap";
 import "../css/AboutUs.css";
 import { Accordion, Card, Button } from "react-bootstrap";
-const image1 = require("../assets/aboutus.jpeg");
+const image1 = require("../assets/AboutUs.jpg");
 
 class AboutUs extends Component {
   render() {
@@ -15,13 +15,16 @@ class AboutUs extends Component {
           </BreadcrumbItem>
           <BreadcrumbItem active>About Us</BreadcrumbItem>
         </Breadcrumb>
-        <div className="row">
+        <div className="container">
           <img
             className="offset-3 col-6"
             src={image1}
             alt="Norway"
             style={{ width: "100%", height: "100%" }}
           />
+          <h4 className="centered">
+            <strong>connecting farmers and buyers to transact freely and fairly with each other by breaking down the financial, communication and marketing barriers of brokers, sales agents, and other intermediaries that generate profits by separating agricultural producers, wholesale buyers and consumers.</strong>
+          </h4>
         </div>
           <Accordion defaultActiveKey="0" style={{padding:'0px'}}>
             <Card>
