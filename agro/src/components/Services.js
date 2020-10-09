@@ -11,11 +11,18 @@ import {
   Spinner,
 } from "reactstrap";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-
+import Cookies from 'js-cookie'
 const Services = (props) => {
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  var { userInfo } = userSignin;
+  if (!userInfo) {
+    userInfo = Cookies.get("userInfo");
+    try {
+      userInfo = JSON.parse(userInfo);
+    } catch (err) {
+      userInfo = null;
+    }
+  }
   const cropList = useSelector((state) => state.cropList);
   const { Data, loading, error } = cropList;
   const renderList = !loading ? (

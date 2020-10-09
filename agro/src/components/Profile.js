@@ -11,14 +11,21 @@ import {
   Button,
 } from "reactstrap";
 import { useSelector } from "react-redux";
-
+import Cookies from "js-cookie";
 const Profile = (props) => {
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
-  console.log(userInfo)
+  var { userInfo } = userSignin;
+  if (!userInfo) {
+    userInfo = Cookies.get("userInfo");
+    try {
+      userInfo = JSON.parse(userInfo);
+    } catch (err) {
+      userInfo = null;
+    }
+  }
   if (!userInfo) {
     props.history.push("/login");
-    return null
+    return null;
   }
   return (
     <div>

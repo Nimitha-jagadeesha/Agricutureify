@@ -11,21 +11,29 @@ import {
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signin } from "../actions/userAction";
+import Cookies from "js-cookie";
 const image1 = require("../assets/download.jpg");
 
 const Header = () => {
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const [isNavOpen, setState] = useState(false);
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
-
+  var { userInfo } = userSignin;
+  if (!userInfo) {
+    userInfo = Cookies.get("userInfo");
+    try {
+      userInfo = JSON.parse(userInfo);
+    } catch (err) {
+      userInfo = null;
+    }
+  }
   const toggleNav = () => {
     setState(!isNavOpen);
   };
 
   const renderNavItem = () => {
     if (userInfo) {
-      console.log(userInfo)
+      console.log(userInfo);
       return (
         <Nav className="ml-auto" navbar>
           <NavItem>
@@ -37,9 +45,12 @@ const Header = () => {
           <NavItem>
             <NavLink
               className="nav-link"
+              refresh="true"
               to="/home"
               onClick={() => {
-                dispatch(signin())
+                Cookies.remove("userInfo");
+                userInfo = null;
+                window.location.reload();
               }}
             >
               <span className="fa fa-sign-out fa-lg"></span> Logout
