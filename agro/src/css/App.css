@@ -85,6 +85,9 @@ margin: 0;
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
+.search{
+  padding-left: 0px;
+}
 input {
   padding: 1rem;
   border: 0.1rem #c0c0c0 solid;
