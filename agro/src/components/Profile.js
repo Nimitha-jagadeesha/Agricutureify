@@ -12,8 +12,14 @@ import {
 } from "reactstrap";
 import { useSelector } from "react-redux";
 import Cookies from "js-cookie";
+import Select from 'react-select'
 const Profile = (props) => {
   const userSignin = useSelector((state) => state.userSignin);
+  const options = [
+    { value: 'wheat', label: 'wheat' },
+    { value: 'paddy', label: 'paddy' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
   var { userInfo } = userSignin;
   if (!userInfo) {
     userInfo = Cookies.get("userInfo");
@@ -37,29 +43,80 @@ const Profile = (props) => {
       </Breadcrumb>
 
       <div className="container">
-        <Card className="row offset-3 col-6">
-          <br />
-          <CardImg
-            top
-            height="50%"
-            src={require("../assets/download.jpg")}
-            alt="Card image cap"
-          />
-          <CardBody body className="text-center">
-            <CardTitle>
-              <h3>Name : {userInfo.firstname}</h3>
-            </CardTitle>
-            <CardSubtitle>
+        <br />
+        <Card
+          className="row"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <CardBody body className="text-center container">
+            <h3 class="row">
+              <b className="col-6">Name :</b> {userInfo.firstname}
+            </h3>
+            <CardText className="row">
+              <b className="col-6">Type Of Account :</b>
               {userInfo.isFarmer ? "Farmer" : "Buyer"}
-            </CardSubtitle>
-            <CardText>Email : {userInfo.email}</CardText>
-            <CardText>Address:{userInfo.address}</CardText>
-            <CardText>Phone Number{userInfo.phone}</CardText>
-            <Button>Update:</Button>
+            </CardText>
+            <CardText className="row">
+              <b className="col-6">Email : </b>
+              {userInfo.email}
+            </CardText>
+            <CardText className="row">
+              <b className="col-6"> Address : </b>
+              {userInfo.address}
+            </CardText>
+            <CardText className="row">
+              <b className="col-6">Phone Number : </b>
+              {userInfo.phone}
+            </CardText>
+            <Button className="bg-primary">
+              <i className="fa fa-pencil" />
+              {"    "}Edit
+            </Button>
           </CardBody>
         </Card>
         <br />
+        {userInfo.isFarmer ? (
+          <Card
+            className="row"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <CardBody body className="text-center container">
+              <div className="row">
+                <p></p>
+              </div>
+              <div className="row">
+                <label className="col-4 col-md-2 offset-1 offset-md-2">
+                  <b>Select the crop :</b>
+                </label>
+                <Select options={options}  className="col-6 col-md-5" />
+
+              </div>
+              <br />
+              <div className="row">
+                <label className="col-4 col-md-2 offset-1 offset-md-2">
+                  <b>Price expectation in Rs:</b>
+                </label>
+                <input
+                  className="col-6 col-md-5"
+                  type="text"
+                  id="lname"
+                  name="lastname"
+                  placeholder="Your last name"
+                  required
+                  onChange={(e) => {
+                  }}
+                />
+              </div>
+              <br />
+              <Button className="bg-success">
+                <i className="fa fa-plus" />
+                {"    "}Add crop
+              </Button>
+            </CardBody>
+          </Card>
+        ) : null}
       </div>
+      <br />
     </div>
   );
 };
