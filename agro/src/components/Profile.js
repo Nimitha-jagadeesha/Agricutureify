@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Breadcrumb, BreadcrumbItem, Media } from "reactstrap";
 import { Link } from "react-router-dom";
 import {
@@ -10,16 +10,20 @@ import {
   CardSubtitle,
   Button,
 } from "reactstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
-import Select from 'react-select'
+import Select from "react-select";
+import options from "./options";
+import { addCrop } from "../actions/cropsActions";
+
 const Profile = (props) => {
+  const dispatch = useDispatch();
   const userSignin = useSelector((state) => state.userSignin);
-  const options = [
-    { value: 'wheat', label: 'wheat' },
-    { value: 'paddy', label: 'paddy' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ]
+  const [price, setPrice] = useState("");
+  const [pic, setPic] = useState("");
+  const [name, setName] = useState("");
+  const addcrop = useSelector((state) => state.addcrop);
+  console.log(addcrop);
   var { userInfo } = userSignin;
   if (!userInfo) {
     userInfo = Cookies.get("userInfo");
@@ -33,6 +37,24 @@ const Profile = (props) => {
     props.history.push("/login");
     return null;
   }
+  const handleAddCrop = () => {
+    if(name&&price)
+    dispatch(
+      addCrop(
+        name,
+        price,
+        userInfo.firstname,
+        pic,
+        userInfo._id,
+        userInfo.address,
+        userInfo.phone
+      )
+    );
+    else
+    {
+      console.log('All fields are required')
+    }
+  };
   return (
     <div>
       <Breadcrumb>
@@ -88,8 +110,16 @@ const Profile = (props) => {
                 <label className="col-4 col-md-2 offset-1 offset-md-2">
                   <b>Select the crop :</b>
                 </label>
-                <Select options={options}  className="col-6 col-md-5" />
-
+                <Select
+                required
+                  options={options}
+                  className="col-6 col-md-5"
+                  onChange={(e) => {
+                    setName(options[e.value].label);
+                    setPic(options[e.value].url);
+                    console.log(options[e.value].label);
+                  }}
+                />
               </div>
               <br />
               <div className="row">
@@ -99,16 +129,13 @@ const Profile = (props) => {
                 <input
                   className="col-6 col-md-5"
                   type="text"
-                  id="lname"
-                  name="lastname"
-                  placeholder="Your last name"
+                  placeholder="Enter price"
                   required
-                  onChange={(e) => {
-                  }}
+                  onChange={(e) => {setPrice(e.target.value)}}
                 />
               </div>
               <br />
-              <Button className="bg-success">
+              <Button className="bg-success" onClick={handleAddCrop}>
                 <i className="fa fa-plus" />
                 {"    "}Add crop
               </Button>
