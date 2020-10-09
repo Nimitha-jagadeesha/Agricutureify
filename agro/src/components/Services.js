@@ -42,7 +42,7 @@ const Services = (props) => {
                   <strong>Crop :</strong> {x.name}
                 </Media>
                 <Media className="row">
-                  <strong className="col-md-3 col-6 offset-1">Price :</strong>{" "}
+                  <strong className="col-md-3 col-6 offset-1">Price per Kg:</strong>{" "}
                   <div className="col-md-8 col-5">{x.price}</div>
                 </Media>
                 <Media className="row">

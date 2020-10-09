@@ -55,7 +55,7 @@ const Profile = (props) => {
                     </Media>
                     <Media className="row">
                       <strong className="col-md-3 col-6 offset-1">
-                        Price :
+                        Price per KG:
                       </strong>{" "}
                       <div className="col-md-8 col-5">{x.price}</div>
                     </Media>
@@ -182,7 +182,7 @@ const Profile = (props) => {
                 <br />
                 <div className="row">
                   <label className="col-4 col-md-2 offset-1 offset-md-2">
-                    <b>Price expectation in Rs:</b>
+                    <b>Price expectation in Rs/Kg:</b>
                   </label>
                   <input
                     className="col-6 col-md-5"

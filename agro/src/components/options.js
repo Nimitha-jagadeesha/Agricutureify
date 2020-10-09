@@ -11,7 +11,14 @@
     {value:'9',label:'Carrots',url:'https://foodandnutrition.org/wp-content/uploads/Savor-Carrots-780x520.jpg'},
     {value:'10',label:'Celery',url:'https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-celery-imported-celery-tall-utah-vegetable-seeds-16969063891084_600x600.jpg?v=1601347825'},
     {value:'11',label:'Apples',url:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ6plTXA1SoKEXa3jr3NWtB0RSTi0MEi_MnzA&usqp=CAU'},
-    {value:'12',label:'Orange',url:'https://cdn.britannica.com/24/174524-050-A851D3F2/Oranges.jpg'}
+    {value:'12',label:'Orange',url:'https://cdn.britannica.com/24/174524-050-A851D3F2/Oranges.jpg'},
+    {value:'13',label:'Grapes',url:'https://www.keckmedicine.org/wp-content/uploads/2016/10/grapes-have-so-many-health-benefits-like-fighting-against-cancer-and-boosting-cardio.jpg'},
+    {value:'14',label:'Watermelons',url:'https://media.self.com/photos/5b10229e443bb72bf9fe0750/16:9/w_2800,h_1575,c_limit/pick-a-perfect-mellon.jpg'},
+    {value:'15',label:'Peaches',url:'https://d279m997dpfwgl.cloudfront.net/wp/2019/07/0710_peaches-1000x667.jpg'},
+    {value:'16',label:'Pears',url:'https://post.healthline.com/wp-content/uploads/2020/08/benefits-of-pears-1200x628-facebook-1200x628.jpg'},
+    {value:'17',label:'Corn',url:'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-973555096-1583765387.jpg?crop=0.669xw:1.00xh;0.333xw,0&resize=480:*'},
+    {value:'19',label:'Ragi',url:'https://cdn.shopify.com/s/files/1/1462/9838/products/com1807893921823Poshtik_Ragi_1c6416df-6e16-4a84-aabe-78c2445a2d31_2048x.png?v=1565272257'},
+    {value:'20',label:'Musturd',url:'https://tiimg.tistatic.com/fp/1/005/518/small-black-mustard-seeds-942.jpg'},
 
   ]
 
