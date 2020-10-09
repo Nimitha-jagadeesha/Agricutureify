@@ -11,7 +11,10 @@ import {
   Spinner,
 } from "reactstrap";
 import { useSelector } from "react-redux";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
+import options from "./options";
+import Select from "react-select";
+
 const Services = (props) => {
   const userSignin = useSelector((state) => state.userSignin);
   var { userInfo } = userSignin;
@@ -75,9 +78,8 @@ const Services = (props) => {
     <Spinner color="primary" className="offset-5" />
   );
 
-  if(!userInfo)
-  {
-    props.history.push('/login');
+  if (!userInfo) {
+    props.history.push("/login");
   }
   return (
     <div>
@@ -90,19 +92,22 @@ const Services = (props) => {
         </BreadcrumbItem>
       </Breadcrumb>
       <div className="container">
-        <InputGroup className="offset-3 col-8">
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText>
-              <span className="fa fa-search" />
-            </InputGroupText>
-          </InputGroupAddon>
-          <Input placeholder="Search crop" />
-        </InputGroup>
+        <div className="row offset-3">
+          <InputGroupText className="col-md-1 col-2">
+            <span className="fa fa-search" />
+          </InputGroupText>
+          <Select
+            options={options}
+            className="col-8 col-md-8 search"
+            placeholder="Search"
+            onChange={(e) => {
+              console.log(e.value);
+            }}
+          />
+        </div>
       </div>
       <br />
-      <div className="container">
-        {renderList}
-      </div>
+      <div className="container">{renderList}</div>
     </div>
   );
 };
