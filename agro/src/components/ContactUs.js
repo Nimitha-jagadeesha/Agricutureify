@@ -69,7 +69,7 @@ class Contact extends Component {
                   <br />
                   <i className="fa fa-envelope"></i>:{" "}
                   <a href="mailto:agroconnect@email.com">
-                    agroconnect@email.com
+                    agriculturify@email.com
                   </a>
                 </strong>
               </h6>

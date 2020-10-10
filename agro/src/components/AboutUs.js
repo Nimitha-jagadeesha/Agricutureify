@@ -23,7 +23,7 @@ class AboutUs extends Component {
             style={{ width: "100%", height: "100%" }}
           />
           <h4 className="centered">
-            <strong>connecting farmers and buyers to transact freely and fairly with each other by breaking down the financial, communication and marketing barriers of brokers, sales agents, and other intermediaries that generate profits by separating agricultural producers, wholesale buyers and consumers.</strong>
+            <strong>Connecting farmers and buyers to transact freely and fairly with each other by breaking down the financial, communication and marketing barriers of brokers, sales agents, and other intermediaries that generate profits by separating agricultural producers, wholesale buyers and consumers.</strong>
           </h4>
         </div>
           <Accordion defaultActiveKey="0" style={{padding:'0px'}}>

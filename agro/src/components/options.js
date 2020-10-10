@@ -31,7 +31,7 @@ const options = [
   },
   {
     value: "5",
-    label: "Peppers",
+    label: "Capsicum",
     url:
       "https://www.almanac.com/sites/default/files/image_nodes/bell-peppers-assorted-crop.jpg",
   },

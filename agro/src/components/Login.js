@@ -67,7 +67,7 @@ function Login(props) {
         </div>
         <br />
         <Link to="/register" className="col-12 text-center">
-          New to AgroConnect?
+          New to Agriculturify?
         </Link>
         <br />
         <input
